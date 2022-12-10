@@ -13,12 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jokes', function (Blueprint $table) {
-            $table->id();
+        if (!Schema::hasTable('joke')) {
+        Schema::create('joke', function (Blueprint $table) {
+            $table->increments('idJoke');
+            $table->longText('content');
+            $table->integer('like');
+            $table->integer('dislike');
             $table->timestamps();
         });
     }
-
+    }
     /**
      * Reverse the migrations.
      *
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jokes');
+        Schema::dropIfExists('joke');
     }
 };
