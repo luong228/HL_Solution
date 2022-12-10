@@ -28,12 +28,15 @@ function App() {
   }, []);
 
   const handleLikeButton = () => {
+    axios.patch(`http://127.0.0.1:8000/api/joke/like/${idJoke}`)
     const newIdJoke = idJoke + 1
     setIdJoke(newIdJoke)
     localStorage.setItem('readedJoke', newIdJoke);
 
   }
+
   const handleDislikeButton = () => {
+    axios.patch(`http://127.0.0.1:8000/api/joke/dislike/${idJoke}`)
     const newIdJoke = idJoke + 1
     setIdJoke(newIdJoke)
     localStorage.setItem('readedJoke', newIdJoke);
