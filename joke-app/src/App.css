@@ -51,6 +51,7 @@ p.author-name {
 .header__profile-avatar {
   margin-left: 10px;
 }
+
 .header__profile-avatar-img {
   height: 80px;
   width: 80px;
@@ -75,7 +76,6 @@ p.author-name {
 .banner__title {
   font-size: 30px;
   padding-top: 70px;
-  /* padding-bottom: 10px; */
   line-height: 60px;
 }
 
@@ -92,12 +92,14 @@ p.author-name {
   line-height: 24px;
   text-align: center;
 }
+
 .container__joke-text {
   width: 60%;
   margin: 50px auto;
   font-size: 14px;
   line-height: 24px;
 }
+
 .container__vote-button {
   display: flex;
   justify-content: center;
@@ -121,6 +123,7 @@ p.author-name {
   cursor: pointer;
 
 }
+
 .container__hr {
   width: 50%;
   margin: 0 auto;
@@ -146,4 +149,37 @@ p.author-name {
   text-align: center;
   margin-bottom: 20px;
   color: #555555;
+}
+
+/* Resonspive */
+
+/* Mobile */
+@media (max-width: 739px) {
+  .header__profile-avatar-img {
+    height: 60px;
+    width: 60px;
+  }
+
+  .header__logo-img {
+    height: 60px;
+    width: 60px;
+  }
+
+  .banner__title {
+    font-weight: 400;
+  }
+
+  #container__vote-button-like,
+  #container__vote-button-dislike {
+    padding: 8px 15px;
+  }
+
+  .container__hr {
+    display: none;
+  }
+
+  #footer {
+    width: 100%;
+  }
+
 }
