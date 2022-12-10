@@ -18,6 +18,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('joke', [JokeController::class, 'index']);
+Route::patch('joke/like/{idJoke}', [JokeController::class, 'like']);
+Route::patch('joke/dislike/{idJoke}', [JokeController::class, 'dislike']);
 
 
 // Route::get('joke', 'JokeController@index');

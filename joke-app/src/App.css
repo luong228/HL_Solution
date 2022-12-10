@@ -85,6 +85,13 @@ p.author-name {
   line-height: 20px;
 }
 
+.container__joke-end {
+  width: 50%;
+  margin: 50px auto;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+}
 .container__joke-text {
   width: 60%;
   margin: 50px auto;

@@ -13,6 +13,8 @@ class Joke extends Model
     protected $fillable =[
         'idJoke',
         'content',
+        'like',
+        'dislike',
         'created_at',
         'updated_at'
     ];
