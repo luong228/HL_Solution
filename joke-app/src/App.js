@@ -1,8 +1,45 @@
 import logo from './image/logo.png';
 import avatar from './image/avatar.jpg';
+import axios from 'axios';
+import {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
+  const [jokes, setJokes] = useState([])
+  const [idJoke, setIdJoke] = useState(0)
+  useEffect(() => {
+    if(localStorage.getItem('readedJoke')) {
+      setIdJoke (parseInt(localStorage.getItem('readedJoke')))
+      console.log(idJoke);
+    }
+    else {
+      localStorage.setItem('readedJoke', idJoke);
+    }
+  }, [])
+  
+  useEffect(() => {
+    axios.get(`http://127.0.0.1:8000/api/joke`)
+    .then(res => {
+      const data = res.data;
+      setJokes(data);
+      console.log(data);
+    })
+    .catch(error => console.log(error));
+  }, [])
+  const handleLikeButton = () => {
+    const newIdJoke = idJoke + 1
+    setIdJoke(newIdJoke)
+    localStorage.setItem('readedJoke', idJoke);
+    console.log(newIdJoke);
+    
+  }
+  const handleDislikeButton = () => {
+    const newIdJoke = idJoke + 1
+    setIdJoke(newIdJoke)
+    localStorage.setItem('readedJoke', idJoke);
+    console.log(newIdJoke);
+  }
+
   return (
     <div id="App">
     <div className="header">
@@ -26,15 +63,27 @@ function App() {
       </div>
       <div className="container">
         <p className="container__joke-text">
-          A child asked his father, "How were people born?"
-          So his father said, "Adam and Eve made babies, then their babies became adults and made babies, and so on."
-          The child then went to his mother, asked her the same question and she told him, "We were monkeys then we evolved to become like we are now."
-          The child ran back to his father and said, "You lied to me!"
-          His father replied, "No, your mom was talking about her side of the family."</p>
+          {
+            jokes.map((joke) => {
+             if(idJoke == joke.idJoke) {
+              return joke.content
+             }
+            }
+            )
+          }
+        </p>
         <hr className="container__hr" />
         <div className="container__vote-button">
-          <button id="container__vote-button-like">This is Funny!</button>
-          <button id="container__vote-button-dislike">This is not funny.</button>
+          <button 
+          id="container__vote-button-like"
+          onClick ={() => handleLikeButton()}>
+            This is Funny!
+            </button>
+          <button 
+          id="container__vote-button-dislike"
+          onClick ={() =>  handleDislikeButton()}>
+            This is not funny.
+          </button>
         </div>
       </div>
     </div>
