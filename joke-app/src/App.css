@@ -1,38 +1,142 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  z-index: 5;
   display: flex;
-  flex-direction: column;
+  height: 104px;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px 50px;
+  position: relative;
+  background-color: white;
+}
+
+.header__logo {
+  padding: 0 12px 9px;
+}
+
+.header__logo-img {
+  height: 80px;
+  width: 80px;
+}
+
+.header__profile {
+  display: flex;
+  align-items: center;
+}
+
+p.credit {
+  font-size: 13px;
+  color: #a3a3a3;
+}
+
+p.author-name {
+  font-size: 14px;
+  text-align: right;
+}
+
+.header__profile-avatar {
+  margin-left: 10px;
+}
+.header__profile-avatar-img {
+  height: 80px;
+  width: 80px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+#App {
+  overflow: hidden;
+}
+
+.banner {
+  background-color: #29b363;
+}
+
+.banner__title,
+.banner__desc {
+  text-align: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.banner__title {
+  font-size: 30px;
+  padding-top: 70px;
+  /* padding-bottom: 10px; */
+  line-height: 60px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.banner__desc {
+  font-size: 15px;
+  padding-bottom: 50px;
+  line-height: 20px;
+}
+
+.container__joke-text {
+  width: 60%;
+  margin: 50px auto;
+  font-size: 14px;
+  line-height: 24px;
+}
+.container__vote-button {
+  display: flex;
+  justify-content: center;
+}
+
+#container__vote-button-like {
+  color: white;
+  border: none;
+  padding: 13px 70px;
+  margin: 30px 0 80px 10px;
+  background-color: #2c7edb;
+  cursor: pointer;
+}
+
+#container__vote-button-dislike {
+  color: white;
+  border: none;
+  padding: 13px 70px;
+  margin: 30px 0 80px 30px;
+  background-color: #29b363;
+  cursor: pointer;
+
+}
+.container__hr {
+  width: 50%;
+  margin: 0 auto;
+  border: 0.5px solid #dbd3d3;
+}
+
+#footer {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.footer__desc {
+  font-weight: 300;
+  font-size: 13px;
+  margin: 30px auto 10px auto;
+  text-align: center;
+  color: #a3a3a3;
+}
+
+.footer__copyright {
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555555;
 }
