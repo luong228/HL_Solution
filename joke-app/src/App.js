@@ -1,11 +1,11 @@
 import logo from './image/logo.png';
 import avatar from './image/avatar.jpg';
 import axios from 'axios';
-import { useState, useLayoutEffect, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [jokes, setJokes] = useState(['a'])
+  const [jokes, setJokes] = useState([])
   const [idJoke, setIdJoke] = useState(0)
 
   useEffect(() => {
@@ -13,7 +13,6 @@ function App() {
       .then(res => {
         const data = res.data;
         setJokes(data);
-        console.log(data);
       })
       .catch(error => console.log(error));
   }, []);
@@ -21,23 +20,22 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem('readedJoke')) {
       setIdJoke(parseInt(localStorage.getItem('readedJoke')))
-      console.log(idJoke);
     }
     else {
       localStorage.setItem('readedJoke', idJoke);
     }
   }, [])
-  console.log(jokes.length);
+
   const handleLikeButton = () => {
-    axios.patch(`http://127.0.0.1:8000/api/joke/like/${idJoke+1}`)
+    axios.patch(`http://127.0.0.1:8000/api/joke/like/${idJoke + 1}`)
     const newIdJoke = idJoke + 1
+
     setIdJoke(newIdJoke)
     localStorage.setItem('readedJoke', newIdJoke);
 
   }
-
   const handleDislikeButton = () => {
-    axios.patch(`http://127.0.0.1:8000/api/joke/dislike/${idJoke+1}`)
+    axios.patch(`http://127.0.0.1:8000/api/joke/dislike/${idJoke + 1}`)
     const newIdJoke = idJoke + 1
     setIdJoke(newIdJoke)
     localStorage.setItem('readedJoke', newIdJoke);
@@ -72,7 +70,7 @@ function App() {
               <p className="container__joke-text">
                 {
                   jokes.map((joke) => {
-                    if (idJoke == joke.idJoke -1) {
+                    if (idJoke == joke.idJoke - 1) {
                       return joke.content
                     }
                   }
