@@ -22,8 +22,24 @@ function miniMax_sum(arr, n) {
 	
 }
 
-var arr = [1,3,5,7,9]
+var arr = [0,1,1,2,9]
 var n = arr.length;
 miniMax_sum(arr, n)
+miniMaxSum(arr, n)
+function miniMaxSum (arr, n) {
+	let min = arr[0], max = arr[0], sum = arr[0];
+	
+	for( i=1;i< n; i++) {
+		if(arr[i] > max)
+			max = arr[i]
+		if(arr[i] < min) {
+			min = arr[i]
+		}
+		sum += arr[i]
+	}
 
+	let minSum = sum -max;
+	let maxSum = sum - min;
+	console.log(minSum, maxSum);
+}
 
